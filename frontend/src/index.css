@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0A0A0A;
+  --color-primary: #FF6B00;
+  --color-secondary: #00D4FF;
+  --color-success: #22C55E;
+  --color-dark: #121212;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glassBorder: rgba(255, 255, 255, 0.1);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: white;
+    overflow-x: hidden;
+  }
+}
+
+@utility glass-panel {
+  background-color: var(--color-glass);
+  border: 1px solid var(--color-glassBorder);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+}
+
+@utility text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
