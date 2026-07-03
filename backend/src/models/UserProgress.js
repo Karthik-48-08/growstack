@@ -19,12 +19,29 @@ const userProgressSchema = new mongoose.Schema({
     type: Number,
   }],
   dayLogs: [{
-    dayNumber: Number,
+    dayNumber: { type: Number, required: true },
+
+    // Lesson
     lessonCompleted: { type: Boolean, default: false },
+    lessonCompletedAt: { type: Date },
+
+    // Quiz (multiple-choice)
+    quizPassed: { type: Boolean, default: false },
     quizScore: { type: Number, default: 0 },
+    quizXpAwarded: { type: Boolean, default: false },
+
+    // Coding assessment (timed fullscreen)
+    assessmentScore: { type: Number, default: 0 },
+    assessmentXpAwarded: { type: Boolean, default: false },
+
+    // Assignment (submitted for admin review)
     assignmentSubmitted: { type: Boolean, default: false },
+    assignmentSubmittedAt: { type: Date },
+
+    // Day as a whole
     isDayCompleted: { type: Boolean, default: false },
-  }]
+    completedAt: { type: Date },
+  }],
 }, {
   timestamps: true,
 });
